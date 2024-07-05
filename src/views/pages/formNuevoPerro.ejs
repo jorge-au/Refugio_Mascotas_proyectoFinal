@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', {title: 'Refugio Mascotas'}) %>
+<body>
+    <%- include('../partials/header') %>
+
+    <main class="main-nuevo-perro">
+        <div class="conenedor-form-nuevo-perro">
+            <h1 class="titulo-nuevo-perro">Registrar Nuevo Perro</h1>
+            <form action="/nuevo_perro" method="POST" class="formulario-nuevo-perro">
+                <label  class="label-nuevo-perro" for="nombre">Nombre:</label>
+                <input class="input-nuevo-perro" type="text" id="nombre" name="nombre" required>
+                <label  class="label-nuevo-perro" for="raza">Raza:</label>
+                <input class="input-nuevo-perro" type="text" id="raza" name="raza">
+                <label  class="label-nuevo-perro" for="edad">Edad:</label>
+                <input class="input-nuevo-perro" type="number" id="edad" name="edad">
+                <label  class="label-nuevo-perro" for="fecha_ingreso">Fecha de Ingreso:</label>
+                <input class="input-nuevo-perro" type="date" id="fecha_ingreso" name="fecha_ingreso">
+                <label  class="label-nuevo-perro" for="imagen">Imagen:</label>
+                <input class="input-nuevo-perro" type="file" id="imagen" name="imagen" required>
+                <label  class="label-nuevo-perro" for="estado">Estado:</label>
+                <select class="select-nuevoPerro" id="estado" name="estado">
+                    <option value="disponible">Disponible</option>
+                    <option value="adoptado">Adoptado</option>
+                    <option value="en tratamiento">En Tratamiento</option>
+                </select>
+                <button class="boton-nuevoPerro" type="submit">Registrar</button>
+            </form>
+        </div>
+    </main>
+    
+
+    <%- include('../partials/footer') %>
+</body>
+</html>

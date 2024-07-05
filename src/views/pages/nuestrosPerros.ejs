@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', {title: 'Nuestros Perros'}) %>
+<body>
+    <%- include('../partials/header') %>
+
+    <header class="header_nuestros_perros sombra">
+        <div class="contenedor_h1">
+          <h1>Encuentra tu Compañero</h1>
+          <a href="/formNuevoPerro" class="agregar-perro">Agregar Perro nuevo</a>
+        </div>
+      </header>
+
+    <div class="section_nuestros_perros">
+        <p>En Refugio De Amigos Peludos, creemos firmemente en encontrar hogares amorosos y permanentes para cada uno de
+          nuestros amigos de cuatro patas.<br> Adoptar un perro no solo te brinda compañía y alegría, sino que también
+          salvas una vida y le das a un perro la oportunidad de tener un hogar lleno de amor y cuidado.<br>Desde perros
+          pequeños y juguetones hasta compañeros más grandes y tranquilos, tenemos una variedad de perros de diferentes
+          edades, tamaños y personalidades esperando ser adoptados.<br> Nuestro equipo estará encantado de ayudarte a
+          encontrar el compañero peludo perfecto que se adapte a tu estilo de vida y necesidades.</p>
+    </div>
+    
+    <main class="main_nuestros_perros">
+        <div id="card-container" class="contenedor_cards_perros"></div>
+    </main>
+    
+    <a class="mas-perros" href="masPerros">Ver más perros</a>
+
+    <%- include('../partials/footer') %>
+    
+    <script src="js/nav.js"></script>
+    <!-- <script src="js/script.js"></script> -->
+  <script src="js/nuestros_perros.js"></script>
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1200,
+    });
+  </script>
+
+</body>
+</html>

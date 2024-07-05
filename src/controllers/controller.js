@@ -44,18 +44,23 @@ module.exports = {
     },
 
     crearNuevoPerro: (req, res) => {
-        const {nombre, raza, edad, fecha_ingreso, imagen, estado} = req.body;
-        console.log(req.body)
+        if (!req.file) {
+            return res.status(400).json({ msg: 'No se ha subido ninguna imagen' });
+        }    
+        const {nombre, raza, edad, fecha_ingreso, estado} = req.body;
+        const url_imagen = `http://localhost:3000/img/${req.file.filename}`;
+        console.log(url_imagen)
         const sql = 'INSERT INTO perros (nombre, raza, edad, fecha_ingreso, imagen, estado) VALUES (?, ?, ?, ?, ?, ?)';
-        pool.query(sql, [nombre, raza, edad, fecha_ingreso,imagen, estado], (err, result) =>{
+        const values = [nombre, raza, edad, fecha_ingreso, url_imagen, estado];
+        pool.query(sql, values,  (err, data) =>{
             if(err) {
                 throw err 
             } else {
-                console.log(result)
                 res.redirect('/')
+                console.log(data)
             }
         })
 
     }
 
-} //lave de cierre de module exports
+} //llave de cierre de module exports

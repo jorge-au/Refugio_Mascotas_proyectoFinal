@@ -9,11 +9,13 @@
     height: 100vh;
 }
 .conenedor-form-nuevo-perro {
-    width: 45%;
+    width: 40%;
+    max-width: 1000px;
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    font-size: 1.2rem;
 }
 .titulo-nuevo-perro {
     text-align: center;

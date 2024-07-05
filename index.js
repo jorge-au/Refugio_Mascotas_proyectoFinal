@@ -1,5 +1,4 @@
 require('dotenv').config();
-const dataBase = require('./src/dataBase/config');
 const express = require('express');
 const router = require('./src/routes/mainRoutes')
 const server = express();
@@ -15,17 +14,6 @@ server.set('views', (__dirname + '/src/views'));
 server.set('view engine', 'ejs');
 
 server.use('', router)
-
-// server.post('/registroEnviado', async(req, res) => {
-//     const {nombre, direccion, telefono, email,fecha_adopcion, imagen} = req.body;
-//     dataBase.query('INSERT INTO adoptantes(nombre, direccion, telefono, email, fecha_adopcion, imagen) VALUES (?,?,?,?,?,?)', [nombre, direccion, telefono, email, fecha_adopcion], (error, data) => {
-//         if(error) {
-//             console.log(error);
-//         } else {
-//             res.render('pages/registroEnviado')
-//         }
-//     })
-// })
 
 
 /**Server running */

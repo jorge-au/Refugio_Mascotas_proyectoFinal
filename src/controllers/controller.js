@@ -39,8 +39,7 @@ module.exports = {
             if(err) {
                 throw err
             } else {
-                console.log(result)
-                res.redirect('/')
+                res.redirect('/adoptantes')
             }
         })
     },
@@ -99,7 +98,18 @@ module.exports = {
                 res.redirect('/adoptantes');
             }
         })
+    },
 
+    eliminarAdoptante: (req, res) => {
+        const {id} = req.params;
+        const sql = 'DELETE FROM adoptantes WHERE id = ?';
+        pool.query(sql, [id], (err, data) => {
+            if(err) {
+                throw err;
+            } else {
+                res.redirect('/adoptantes')
+            }
+        })
     }
 
 

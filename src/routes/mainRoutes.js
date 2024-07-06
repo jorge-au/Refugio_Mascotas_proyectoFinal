@@ -17,5 +17,6 @@ router.post('/nuevo_adoptante', controllers.crearNuevoAdopante);
 router.get('/adoptantes', controllers.obtenerAdoptantes);
 router.get('/editar_adoptante/:id', controllers.editarAdoptante);
 router.post('/editar_adoptante/:id', controllers.actualizarAdoptante);
+router.get('/borrar_adoptante/:id', controllers.eliminarAdoptante);
 
 module.exports = router;

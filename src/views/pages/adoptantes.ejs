@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', {title: 'Refugio Mascotas'}) %>
+<body>
+    <%- include('../partials/header') %>
+
+   <div class="contenedorAdoptantes">
+    <h1 class="tituloAdoptantes">Lista de Adoptantes</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% adoptantes.forEach(adoptante => { %>
+                <tr>
+                    <td><%= adoptante.id %></td>
+                    <td><%= adoptante.nombre %></td>
+                    <td><%= adoptante.email %></td>
+                    <td><%= adoptante.telefono %></td>
+                    <td><%= adoptante.direccion %></td>
+                    <td class="action-buttons">
+                        <a href="/editar_adoptante/<%= adoptante.id %>" class="btn btn-edit">Editar</a>
+                        <a href="/borrar_adoptante/<%= adoptante.id %>" class="btn btn-delete">Borrar</a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+   </div>
+
+
+    <%- include('../partials/footer') %>
+</body>
+</html>

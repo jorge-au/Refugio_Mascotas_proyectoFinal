@@ -27,7 +27,7 @@ module.exports = {
                 throw err 
             } else {
                 res.render('pages/masPerros', {perros: data})
-            }
+            } 
         })
     },
 
@@ -64,6 +64,43 @@ module.exports = {
                 res.redirect('/nuestrosPerros')
             }
         })
+    },
+
+    obtenerAdoptantes: (req, res) => {
+        pool.query(`SELECT * FROM adoptantes`, (err, data) => {
+            if(err) {
+                throw err;
+            } else {
+                res.render('pages/adoptantes', {adoptantes:data})
+            }
+        })
+    },
+
+    editarAdoptante: (req, res) => {
+        const {id} = req.params;
+        pool.query(`SELECT * FROM adoptantes WHERE id = ?`, [id] ,(err, data) => {
+            if(err) {
+                throw err
+            } else {
+                res.render('pages/editar_adoptante', {adoptante: data[0]});
+            }
+        })
+    },
+
+    actualizarAdoptante: (req, res) => {
+        const{id} = req.params;
+        const {nombre, email, telefono, direccion} = req.body;
+        const sql = 'UPDATE adoptantes SET nombre = ?, email = ?, telefono = ?, direccion = ? WHERE id = ?';
+        const values = [nombre, email, telefono, direccion, id];
+        pool.query(sql, values, (err, data) => {
+            if (err) {
+                throw err;
+            } else {
+                res.redirect('/adoptantes');
+            }
+        })
+
     }
+
 
 } //llave de cierre de module exports

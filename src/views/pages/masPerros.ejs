@@ -3,10 +3,24 @@
     <%- include('../partials/head', {title: 'Refugio Mascotas'}) %>
 <body>
     <%- include('../partials/header') %>
-    <h1>Aquí van los perros traidos de la base de datos</h1>
-    <main class="main_nuestros_perros">
-        
-    </main>
+   
+    <div class="contenedor-masPerros">
+        <% perros.forEach(perro => { %>
+            <div class="card-masPerros">
+                <img class="img-masPerros" src="<%= perro.imagen %>" alt="Imagen de <%= perro.nombre %>">
+                <div class="card-body">
+                    <h2 class="card-title"><%= perro.nombre %></h2>
+                    <p class="card-text">Raza: <%= perro.raza %></p>
+                    <p class="card-text">Edad: <%= perro.edad %> años</p>
+                    <p class="card-text">Fecha de Ingreso: <%= new Date(perro.fecha_ingreso).toLocaleDateString() %></p>
+                    <div class="card-status <%= perro.estado.toLowerCase().replace(' ', '-') %>">
+                        <%= perro.estado %>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+
     <%- include('../partials/footer') %>
 </body>
 </html>

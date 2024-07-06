@@ -22,7 +22,13 @@ module.exports = {
     },
 
     obtenerMasPerros: (req, res) => {
-        res.render('pages/masPerros')
+        pool.query(`SELECT * FROM perros`, (err, data) => {
+            if(err) {
+                throw err 
+            } else {
+                res.render('pages/masPerros', {perros: data})
+            }
+        })
     },
 
     crearNuevoAdopante: (req, res) => {
@@ -49,18 +55,15 @@ module.exports = {
         }    
         const {nombre, raza, edad, fecha_ingreso, estado} = req.body;
         const url_imagen = `http://localhost:3000/img/${req.file.filename}`;
-        console.log(url_imagen)
         const sql = 'INSERT INTO perros (nombre, raza, edad, fecha_ingreso, imagen, estado) VALUES (?, ?, ?, ?, ?, ?)';
         const values = [nombre, raza, edad, fecha_ingreso, url_imagen, estado];
         pool.query(sql, values,  (err, data) =>{
             if(err) {
                 throw err 
             } else {
-                res.redirect('/')
-                console.log(data)
+                res.redirect('/nuestrosPerros')
             }
         })
-
     }
 
 } //llave de cierre de module exports

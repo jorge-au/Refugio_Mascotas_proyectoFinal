@@ -1,19 +1,32 @@
 require('dotenv').config();
 const express = require('express');
-const router = require('./src/routes/mainRoutes')
+const session = require('express-session');
+const path = require('path');
 const server = express();
-const PORT = process.env.PORT;
+const bodyParser = require('body-parser');
+const PORT = process.env.PORT || 3000;
 
 
-server.use(express.static(__dirname + '/public'));
+server.use(express.static(path.join(__dirname, '/public')));
 server.use(express.json());
 server.use(express.urlencoded({extended: true}));
+server.use(bodyParser.json())
+server.use(bodyParser.urlencoded({extended: true}))
+
+server.use(session({
+    secret: 'mys3cr3t_k3y',
+    resave: false,
+    saveUninitialized: false,
+}));
+
 
 // Motor de plantillas
 server.set('views', (__dirname + '/src/views'));
 server.set('view engine', 'ejs');
 
-server.use('', router)
+server.use('', require('./src/routes/mainRoutes'))
+server.use('/login', require('./src/routes/loginRoutes'));
+
 
 
 /**Server running */

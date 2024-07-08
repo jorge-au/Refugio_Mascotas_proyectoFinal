@@ -2,6 +2,14 @@ const express = require('express');
 const router = express.Router();
 const controllers = require('../controllers/controller');
 const fileUpload = require('../utils/handleStorage');
+// const verifyToken = require('../config/auth');
+
+const isLogged = (req, res, next) => {
+    if(!req.session.userId){
+        return res.redirect('login/formLogin')
+    }
+    next()
+}
 
 router.get('/', controllers.renderHome);
 router.get('/adopcion', controllers.renderAdopcion);
@@ -14,7 +22,7 @@ router.post('/nuevo_perro', fileUpload.single('imagen'), controllers.crearNuevoP
 router.get('/masPerros', controllers.obtenerMasPerros);
 
 router.post('/nuevo_adoptante', controllers.crearNuevoAdopante);
-router.get('/adoptantes', controllers.obtenerAdoptantes);
+router.get('/adoptantes', isLogged,controllers.obtenerAdoptantes);
 router.get('/editar_adoptante/:id', controllers.editarAdoptante);
 router.post('/editar_adoptante/:id', controllers.actualizarAdoptante);
 router.get('/borrar_adoptante/:id', controllers.eliminarAdoptante);

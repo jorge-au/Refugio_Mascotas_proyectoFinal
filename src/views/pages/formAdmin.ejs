@@ -1,96 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head') %>
-<style>
-        body {
-        font-family: Arial, sans-serif;
-        background-color:#318c7a;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-}
-
-.form-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-}
-
-h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-.register-text {
-    margin-top: 15px;
-    text-align: center;
-    color: #333;
-}
-
-.register-text a {
-    color: #007BFF;
-    text-decoration: none;
-}
-
-.register-text a:hover {
-    text-decoration: underline;
-}
-</style>
-
+    <link rel="stylesheet" href="/css/login.css">
 <body>
 
-    <div class="form-container">
-        <h2>Registro</h2>
-        <form action="/login/registro" method="POST" enctype="application/x-www-form-urlencoded">
-            <div class="form-group">
-                <label for="usuario">Usuario:</label>
-                <input type="text" id="usuario" name="usuario" required>
-            </div>
-            <div class="form-group">
-                <label for="contrasena">Contraseña:</label>
-                <input type="password" id="contrasena" name="contrasena" required>
-            </div>
+    <div class="login-container">
+        <form class="form-container" action="/login/registro" method="POST" enctype="application/x-www-form-urlencoded">
+            <h2>Registro</h2>
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="usuario" name="usuario" required>
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" required>
             <button type="submit">Registrarse</button>
+            <p class="register-text"><a href="/login/formLogin"> Volver atrás</a></p>
+            <p class="register-text"><a href="/">Volver al Inicio</a></p>
         </form>
-        <p class="register-text"><a href="/login/formLogin"><<< Volver atrás</a></p>
-        <p class="register-text"><a href="/">Volver al Inicio</a></p>
     </div>
 
  

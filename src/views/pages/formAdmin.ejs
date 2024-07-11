@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="stylesheet" href="/css/login.css">
+    <%- include('../partials/head') %>
 <body>
 
     <div class="login-container">
         <form class="form-container" action="/login/registro" method="POST" enctype="application/x-www-form-urlencoded">
-            <h2>Registro</h2>
-            <label for="usuario">Usuario:</label>
-            <input type="text" id="usuario" name="usuario" required>
-            <label for="contrasena">Contraseña:</label>
-            <input type="password" id="contrasena" name="contrasena" required>
+            <h2 class="login-titulo">Registro</h2>
+            <label class="login-label" for="usuario">Usuario:</label>
+            <input class="login-input" type="text" id="usuario" name="usuario" required>
+            <label class="login-label" for="contrasena">Contraseña:</label>
+            <input class="login-input" type="password" id="contrasena" name="contrasena" required>
             <button type="submit">Registrarse</button>
-            <p class="register-text"><a href="/login/formLogin"> Volver atrás</a></p>
+            <!-- <p class="register-text"><a href="/login/formLogin"> Volver atrás</a></p> -->
             <p class="register-text"><a href="/">Volver al Inicio</a></p>
         </form>
     </div>
 
- 
 </body>
 </html>

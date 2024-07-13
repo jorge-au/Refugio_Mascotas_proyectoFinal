@@ -179,6 +179,9 @@ body {
 .menu-lista li a:hover{
   color: black;
 }
+.fa-circle-user::before{
+  font-size: 1.5rem;
+}
 
 /*Estilo de hoja de página adopción*/
 

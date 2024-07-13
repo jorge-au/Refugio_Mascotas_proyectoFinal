@@ -2,7 +2,30 @@
 <html lang="en">
     <%- include('../partials/head', {title: 'Refugio Mascotas'}) %>
 <body>
-    <%- include('../partials/header') %>
+    <header class="header">
+        <div class="container">
+          <div id="nav-externo">
+            <!-- navegacion desde js -->
+            <nav class="menu sombra">
+                <div class="menu-esc" onclick="escMenu()">
+                    <div class="barra"></div>
+                    <div class="barra"></div>
+                    <div class="barra"></div>
+                </div>
+                <ul class="menu-lista" id="menuLista">
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="adopcion">Adopción</a></li>
+                    <li><a href="nuestrosPerros">Nuestros Perros</a></li>
+                    <li><a href="educacionCanina">Educación Canina</a></li>
+                    <li><a href="contacto">Contáctanos</a></li>            
+                    <!-- <li><a href="login/formLogin"><i class="fa-solid fa-circle-user"></i></a></li> -->
+                    <li><a href="login/logout"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+                </ul>
+            </nav>
+            
+          </div>
+        </div>
+    </header>
 
    <div class="contenedorAdoptantes">
     <h1 class="tituloAdoptantes">Lista de Adoptantes</h1>

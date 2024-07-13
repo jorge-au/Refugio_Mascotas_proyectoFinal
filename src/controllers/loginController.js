@@ -65,7 +65,8 @@ module.exports = {
                     return res.status(500).json({ msg: 'Error en el servidor' });
                 } else {
                     req.session.userId = valido.id;
-                    return res.status(200).json({ msg: 'Ingreso exitoso' });
+                    res.redirect('/adoptantes')
+                    // return res.status(200).json({ msg: 'Ingreso exitoso' });
                 }
             });
         } catch (error) {
